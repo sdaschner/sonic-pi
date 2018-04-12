@@ -22,7 +22,8 @@
 *.Debug
 *.Release
 debug/
-release/
+release/*
+!release/Dockerfile
 
 # Core dumps
 *.dump
@@ -113,6 +114,7 @@ book/
 ## IntelliJ IDEA
 
 *.iml
+.idea/
 
 ## i18n auto-generated files
 
