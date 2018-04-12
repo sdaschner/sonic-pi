@@ -49,6 +49,7 @@ RUN apt-get update \
 
 COPY *.md sonic-pi/
 COPY *.html sonic-pi/
+
 COPY run-debian-app sonic-pi/
 COPY app sonic-pi/app/
 COPY bin/ sonic-pi/bin/
