@@ -288,11 +288,11 @@ module SonicPi
     end
 
     def osmid_o2m_path
-      File.join(native_path, "osmid", "o2m")
+      File.join(native_path, "linux", "osmid", "o2m")
     end
 
     def osmid_m2o_path
-      File.join(native_path, "osmid", "m2o")
+      File.join(native_path, "linux", "osmid", "m2o")
     end
 
     def scsynth_log_path
