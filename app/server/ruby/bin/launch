@@ -4,9 +4,8 @@ set -e
 
 export SP_ROOT=/sonic-pi
 
-# TODO WIP
-INTERNAL_IP='192.168.42.2'
-EXTERNAL_IP='192.168.42.2'
+EXTERNAL_IP=$(hostname -I)
+INTERNAL_IP=$EXTERNAL_IP
 ADMIN_PASSWORD=$(dd if=/dev/urandom bs=256 count=1 2> /dev/null | tr -dc 'a-zA-Z0-9' | head -c 32)
 
 # Configure Darkice
@@ -112,4 +111,4 @@ sleep 1
   jack_connect SuperCollider:out_2 sonicpi:right \
 ) &
 
-/sonic-pi/app/server/ruby/bin/sonic-pi-server.rb
+/sonic-pi/app/server/ruby/bin/test-sound.rb
