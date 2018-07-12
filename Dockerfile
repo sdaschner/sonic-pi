@@ -1,30 +1,51 @@
 FROM ubuntu:16.04
 
-MAINTAINER Joseph Burnett (josephburnett79@gmail.com)
+LABEL maintainer="mail@sebastian-daschner.com"
 
 ADD app/gui/html/sources.list /etc/apt/
 
 RUN apt-get update \
- && apt-get install -y \
-  curl \
-  darkice \
-  default-jre \
-  icecast2 \
-  jackd2 \
-  libgit2-dev \
-  python \
-  sudo \
-  wget
-
-# TODO include in list before
-RUN apt-get update && apt-get install -y \
-     g++ ruby ruby-dev pkg-config git build-essential libjack-jackd2-dev \
-     libsndfile1-dev libasound2-dev libavahi-client-dev libicu-dev \
-     libreadline6-dev libfftw3-dev libxt-dev libudev-dev cmake libboost1.58-dev \
-     libqwt-qt5-dev libqt5scintilla2-dev libqt5svg5-dev qt5-qmake qt5-default \
-     qttools5-dev qttools5-dev-tools qtdeclarative5-dev libqt5webkit5-dev \
-     qtpositioning5-dev libqt5sensors5-dev qtmultimedia5-dev libffi-dev \
-     libqt5opengl5-dev curl python erlang-base
+ && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
+     build-essential \
+     cmake \
+     curl \
+     darkice \
+     default-jre \
+     erlang-base \
+     g++ \
+     git \
+     icecast2 \
+     jackd2 \
+     libasound2-dev \
+     libavahi-client-dev \
+     libboost1.58-dev \
+     libffi-dev \
+     libfftw3-dev \
+     libgit2-dev \
+     libicu-dev \
+     libjack-jackd2-dev \
+     libqt5opengl5-dev \
+     libqt5sensors5-dev \
+     libqt5svg5-dev \
+     libqt5webkit5-dev \
+     libqwt-qt5-dev \
+     libreadline6-dev \
+     libsndfile1-dev \
+     libudev-dev \
+     libxt-dev \
+     pkg-config \
+     python \
+     qt5-default \
+     qt5-qmake \
+     qtdeclarative5-dev \
+     qtmultimedia5-dev \
+     qtpositioning5-dev \
+     qttools5-dev \
+     qttools5-dev-tools \
+     ruby \
+     ruby-dev \
+     sudo \
+     wget
 
 COPY *.md sonic-pi/
 COPY *.html sonic-pi/
