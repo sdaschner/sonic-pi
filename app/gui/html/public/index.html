@@ -8,27 +8,33 @@
 <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
 
 <div id="buttons">
-  <button v-on:click="runCode">Run</button>
-  <button v-on:click="stopCode">Stop</button>
+    <button v-on:click="runCode">Run</button>
+    <button v-on:click="stopCode">Stop</button>
 </div>
 
 <textarea id="code-editor">## Loading Buffer...
 </textarea>
 
 <div id="info-log">
-  <ol>
-    <li v-for="log in logs">
-      {{ log }}
-    </li>
-  </ol>
+    <ol>
+        <li v-for="log in logs">
+            {{ log }}
+        </li>
+    </ol>
 </div>
 
 <div id="debug-log">
-  <ol>
-    <li v-for="log in logs">
-      {{ log }}
-    </li>
-  </ol>
+    <ol>
+        <li v-for="log in logs">
+            {{ log }}
+        </li>
+    </ol>
+</div>
+
+<div id="audio-streaming">
+    <audio id="audio" autoplay="autoplay">
+        <source v-bind:src="url" type="audio/mpeg">
+    </audio>
 </div>
 
 <script src="/js/main.js"></script>
