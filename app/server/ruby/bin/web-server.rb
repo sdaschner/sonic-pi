@@ -84,9 +84,9 @@ check_port.call(server_port)
 begin
   case protocol
   when :tcp
-    gui = SonicPi::OSC::TCPClient.new("127.0.0.1", client_port, use_encoder_cache: true)
+    gui = SonicPi::OSC::TCPClient.new("0.0.0.0", client_port, use_encoder_cache: true)
   when :udp
-    gui = SonicPi::OSC::UDPClient.new("127.0.0.1", client_port, use_encoder_cache: true)
+    gui = SonicPi::OSC::UDPClient.new("0.0.0.0", client_port, use_encoder_cache: true)
   when :websockets
     gui = SonicPi::OSC::WebSocketServer.new(client_port)
   end
@@ -546,7 +546,7 @@ out_t = Thread.new do
   end
 end
 
-web_server = WEBrick::HTTPServer.new :Port => 8001, :BindAddress => "127.0.0.1" , :DocumentRoot => html_public_path
+web_server = WEBrick::HTTPServer.new :Port => 8001, :BindAddress => "0.0.0.0" , :DocumentRoot => html_public_path
 
 web_t = Thread.new { web_server.start}
 

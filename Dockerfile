@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 LABEL maintainer="mail@sebastian-daschner.com"
 
-ADD app/gui/html/sources.list /etc/apt/
+ADD app/sources.list /etc/apt/
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
@@ -50,12 +50,13 @@ RUN apt-get update \
 COPY *.md sonic-pi/
 COPY *.html sonic-pi/
 
-COPY run-debian-app sonic-pi/
-COPY app sonic-pi/app/
+COPY app/gui/qt sonic-pi/app/gui/qt
+COPY app/server sonic-pi/app/server
 COPY bin/ sonic-pi/bin/
 COPY etc/ sonic-pi/etc/
 
 RUN cd /sonic-pi/app/gui/qt && ./build-ubuntu-app
-RUN LEIN_ROOT=1 cd /sonic-pi/app/gui/html && ./vendor/lein cljsbuild once
+
+COPY app/gui/html sonic-pi/app/gui/html
 
 CMD /sonic-pi/app/server/ruby/bin/launch

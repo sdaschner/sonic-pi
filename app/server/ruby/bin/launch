@@ -111,4 +111,4 @@ sleep 1
   jack_connect SuperCollider:out_2 sonicpi:right \
 ) &
 
-/sonic-pi/app/server/ruby/bin/test-sound.rb
+/sonic-pi/app/server/ruby/bin/web-server.rb

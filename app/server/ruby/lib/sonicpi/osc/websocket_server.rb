@@ -39,7 +39,7 @@ module SonicPi
       def initialize(port, opts={})
         @port = port
         @opts = opts
-        @server = Rubame::Server.new("localhost", port)
+        @server = Rubame::Server.new("0.0.0.0", port)
         @client = nil
         @matchers = {}
         @decoder = FastOsc

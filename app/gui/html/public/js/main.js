@@ -68,6 +68,12 @@ var oscPort = new osc.WebSocketPort({
     metadata: true
 });
 
+var audioStreaming = new Vue({
+    el: '#audio-streaming',
+    data: {
+        url: "http://localhost:8002/sonicpi" // URL to Icecast2
+    }
+});
 
 oscPort.on("message", function (oscMsg) {
     osc_path = oscMsg.address;
@@ -83,8 +89,6 @@ oscPort.on("message", function (oscMsg) {
         editor.setValue(osc_args[1]);
         break;
     }
-
-
 });
 
 oscPort.open();
