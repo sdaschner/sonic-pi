@@ -1,0 +1,13 @@
+= Cloud DJ documentation
+
+In order to run the Cloud DJ demo, start a Docker container from the following image with following exposed ports:
+
+----
+docker run --rm \
+  -p 8001:8001 \
+  -p 8002:8002 \
+  -p 4558:4558 \
+  sdaschner/sonicpi-clouddj:build-1
+----
+
+You can also build your own Docker image from the project root.
