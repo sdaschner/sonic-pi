@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+}
+.groundbreakers{
+    background-color: #2e2e2e;
+    text-align: center;
+}
+.groundbreakers img{
+    width: 80%;
+    height: 40%;
+}
+.logs {
+    float: right;
+    height: 45%;
+    display: flex;
+    justify-content: right;
+    overflow-y: scroll;
+    width: 30%;
+}
+.CodeMirror {
+    background-color: #bcbcbc;
+    height: 55%;
+    width: 70%;
+}
+.flex-container {
+    display: flex;
+    justify-content: left;
+}
+button{
+    width: 100px;
+    height: 20px;
+    margin: 5px;
+    background-color: #2e2e2e;
+    color: white;
+}
+#groundbreakers-logo {
+    position: absolute;
+    bottom: 10px;
+    right: 120px;
+    width: 100px;
+}
+
+#logo {
+    position: absolute;
+    width: 100px;
+    bottom: 10px;
+    right: 10px;
+}
