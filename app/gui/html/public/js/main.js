@@ -1,5 +1,7 @@
+var host = document.location.hostname;
+
 var oscPort = new osc.WebSocketPort({
-    url: "ws://localhost:4558", // URL to your Web Socket server.
+    url: "ws://" + host + ":4558",
     metadata: true
 });
 
@@ -16,6 +18,7 @@ var buttons = new Vue({
   el: '#buttons',
     methods: {
         runCode: function () {
+            document.getElementById("audio").setAttribute("autoplay", "autoplay");
             oscPort.send({
                 address: "/run-code",
                 args: [
@@ -29,7 +32,7 @@ var buttons = new Vue({
                     },
 
                 ]
-            })
+            });
         },
 
         stopCode: function () {
@@ -41,7 +44,7 @@ var buttons = new Vue({
                         value: "websocket-gui"
                     }
                 ]
-            })
+            });
         }
     }
 })
@@ -64,14 +67,14 @@ var info_log = new Vue({
 })
 
 var oscPort = new osc.WebSocketPort({
-    url: "ws://localhost:4558", // URL to your Web Socket server.
+    url: "ws://" + host + ":4558",
     metadata: true
 });
 
 var audioStreaming = new Vue({
     el: '#audio-streaming',
     data: {
-        url: "http://localhost:8002/sonicpi" // URL to Icecast2
+        url: "http://" + host + ":8002/sonicpi"
     }
 });
 
@@ -92,5 +95,3 @@ oscPort.on("message", function (oscMsg) {
 });
 
 oscPort.open();
-
-console.log("yeeeeysss");
