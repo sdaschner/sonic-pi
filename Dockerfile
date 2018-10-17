@@ -45,7 +45,8 @@ RUN apt-get update \
      ruby \
      ruby-dev \
      sudo \
-     wget
+     wget \
+ && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY *.md sonic-pi/
 COPY *.html sonic-pi/
